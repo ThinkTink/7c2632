@@ -9,11 +9,13 @@ function SearchBar({ movies, genreList, setFilteredMovies }) {
   const [title, setTitle] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
 
-  const filteredMovies = useSearch(movies, title);
+  const filteredMovies = useSearch(movies, title, selectedTags);
 
   useEffect(() => {
     setFilteredMovies(filteredMovies);
-  }, [title]);
+    console.log(selectedTags.length);
+  // }, [title]);
+  }, [title, selectedTags]);
 
   const handleMovieTitleChange = (e) => {
     const { value } = e.target;
@@ -23,13 +25,22 @@ function SearchBar({ movies, genreList, setFilteredMovies }) {
 
   const handleChange = (e) => {
     const { value } = e.target;
-    if (!selectedTags.includes(value)) {
+    if (!selectedTags.includes(value) && value !== '0') {
       const newSelectedTags = [...selectedTags, value];
       setSelectedTags(newSelectedTags);
     }
   };
 
-  const deleteTag = (tag) => {};
+  const deleteTag = (tag) => {
+
+    const newRemainTags = selectedTags.filter((element) => element !== tag);
+
+    // console.log(newRemainTags);
+
+    setSelectedTags(newRemainTags);
+
+
+  };
 
   return (
     <div className="searchBarWrapper">
@@ -47,7 +58,7 @@ function SearchBar({ movies, genreList, setFilteredMovies }) {
           <select onChange={handleChange}>
             <option value="0"> Genre: </option>
             {genreList.map((tag) => (
-              <option key={tag} value={tag}>
+              <option key={tag} value={tag} className="filterValue">
                 {tag}
               </option>
             ))}

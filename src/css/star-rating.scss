@@ -1,2 +1,44 @@
 .stars {
-}
+    .icon {
+      color: white; 
+      opacity: 30%;   
+    }
+    .filled {
+      color: yellow;
+      opacity: 100%;
+    }
+  
+    p.subtitle {
+      float: left;
+      height: 20px;
+    }
+  
+    ul {
+      float: left;
+      width: 250px;
+      height: 20px;
+      margin: 3px 0 0 0;
+    }
+  
+    li:nth-child(1) {
+      opacity: 60%;
+    }
+    li:nth-child(2) {
+      opacity: 70%;
+    }
+  
+    li:nth-child(3) {
+      opacity: 80%;
+    }
+    li:nth-child(4) {
+      opacity: 90%;
+    }
+    li:nth-child(5) {
+      opacity: 100%;
+    }
+  
+    li {
+      display: inline;
+    }
+  }
+  
