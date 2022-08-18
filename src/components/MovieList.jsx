@@ -7,13 +7,11 @@ function MovieList({ movies }) {
   const Movie = ({ movie }) => {
     return (
       <div className="movie">
-        <ul>
-          <img className="posterImage" src={movie.posterImage} />
-          <h5 className="title">{movie.title}</h5>
-          <paragraph className="subtitle">
-            Genre: {movie.genre.join(",")}
-          </paragraph>
-        </ul>
+        <img className="posterImage" src={movie.posterImage} alt={movie.title} />
+        <h5 className="title">{movie.title}</h5>
+        <p className="subtitle">
+          Genre: {movie.genre.join(",")}
+        </p>
         <StarRating rating={movie.rating} />
       </div>
     );
